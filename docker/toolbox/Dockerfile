@@ -1,5 +1,9 @@
-FROM alpine
-RUN apk add --no-cache curl wget busybox-extras netcat-openbsd python py-pip bash && \
-    pip install awscli
-RUN apk --purge -v del py-pip
+FROM node:alpine
+
+EXPOSE 1337
+
+WORKDIR /var/www
+COPY package.json /var/www/
+RUN npm install
+COPY index.js /var/www/
 CMD tail -f /dev/null
