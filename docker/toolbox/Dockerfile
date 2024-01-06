@@ -1,7 +1,3 @@
-FROM node:alpine
-
-EXPOSE 1337
-
-WORKDIR /var/www
-RUN npm install
+FROM ubuntu:18.04
+COPY . /app
 CMD tail -f /dev/null
